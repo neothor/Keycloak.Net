@@ -1,15 +1,14 @@
-﻿using System.Threading.Tasks;
-using Xunit;
-
-namespace Keycloak.Net.Tests
+﻿namespace Keycloak.Net.Tests
 {
+    using System.Threading.Tasks;
+    using Xunit;
+
     public partial class KeycloakClientShould
     {
-        [Theory]
-        [InlineData("master")]
-        public async Task GetKeysAsync(string realm)
+        [Fact]
+        public async Task GetKeysAsync()
         {
-            var result = await _client.GetKeysAsync(realm).ConfigureAwait(false);
+            var result = await _client.GetKeysAsync(RealmId);
             Assert.NotNull(result);
         }
     }
